@@ -31,5 +31,4 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
         shell: bash
-        env:
-          JAR_PATH: 'C:\Work\spring-sparta\week2\sub\security\build\libs\travel-0.0.1-SNAPSHOT.jar'
+       
