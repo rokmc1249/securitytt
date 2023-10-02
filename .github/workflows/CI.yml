@@ -29,6 +29,5 @@ jobs:
         shell: bash
       
       - name: Build with Gradle
-        run: ./gradlew build
-        shell: bash
+        run: ./gradlew clean build
        
