@@ -50,13 +50,13 @@ public class User {
         this.nickname = nickname;
     }
 
+    public void updateProfileImg(String fileName) {
+        this.profile_img_url = fileName;
+    }
+
     public void update(String email,String nickname) {
         this.email = email;
         this.nickname = nickname;
-    }
-
-    public void updateProfileImg(String fileName) {
-        this.profile_img_url = fileName;
     }
 
 }
