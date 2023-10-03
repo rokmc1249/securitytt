@@ -11,23 +11,25 @@ permissions:
 
 jobs:
   build:
-    # 실행환경
     runs-on: ubuntu-latest
 
-     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
     
-    - uses: actions/checkout@v3
-    - run: touch ./src/main/resources/application.properties
-    - run: echo "${{ secrets.APPLICATION }}" > ./src/main/resources/application.properties
-    - run: cat ./src/main/resources/application.properties
-    # (3) Gradle build (Test 제외)
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
-      with:
-        arguments: clean build -x test
+      - name: Create application.properties file
+        run: |
+          touch ./src/main/resources/application.properties
+          echo "${{ secrets.APPLICATION }}" > ./src/main/resources/application.properties
+          cat ./src/main/resources/application.properties
+
+      - name: Build with Gradle
+        uses: gradle/gradle-build-action@v1
+        with:
+          arguments: clean build -x test
