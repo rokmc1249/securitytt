@@ -163,16 +163,16 @@ public class UserService {
         }
     }
 
-    public User checkUser (User user) {
-        return userRepository.findByUserId(user.getUserId()).
-                orElseThrow(() -> new CustomException(ErrorCode.ID_NOT_FOUND));
-    }
-
     public void checkEmail (String email) {
         Optional<User> checkEmail = userRepository.findByEmail(email);
         if (checkEmail.isPresent()) {
             throw new CustomException(ErrorCode.DUPLICATED_EMAIL);
         }
+    }
+
+    public User checkUser (User user) {
+        return userRepository.findByUserId(user.getUserId()).
+                orElseThrow(() -> new CustomException(ErrorCode.ID_NOT_FOUND));
     }
 
     public void checkNickname (String nickname) {
