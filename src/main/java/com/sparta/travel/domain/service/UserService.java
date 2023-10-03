@@ -78,7 +78,7 @@ public class UserService {
         planRepository.deleteAll(planList);
 
         userRepository.delete(deleteUser); // 유저 삭제
-        return new MsgResponseDto(HttpServletResponse.SC_OK, "탈퇴가 완료됐습니다.");
+        return new MsgResponseDto(HttpServletResponse.SC_OK, "탈퇴 완료");
 
     }
 

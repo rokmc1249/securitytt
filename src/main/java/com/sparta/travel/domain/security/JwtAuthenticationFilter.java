@@ -68,7 +68,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         RefreshToken refreshToken = new RefreshToken(token.getRefreshToken(), ((UserDetailsImpl)authResult.getPrincipal()).getUser());
         refreshTokenRepository.save(refreshToken);
 
-        MsgResponseDto responseBody = new MsgResponseDto(HttpServletResponse.SC_OK,"로그인 성공했습니다.");
+        MsgResponseDto responseBody = new MsgResponseDto(HttpServletResponse.SC_OK,"로그인 성공2");
 
         ObjectMapper objectMapper = new ObjectMapper(); // JSON 문자열로 바꿈
         String responseBodyToJson = objectMapper.writeValueAsString(responseBody);
