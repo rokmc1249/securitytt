@@ -18,7 +18,7 @@ bin/
 !**/src/test/**/bin/
 
 ### IntelliJ IDEA ###
-/src/main/resources/application.properties
+
 .idea
 *.iws
 *.iml
@@ -27,8 +27,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 # Spring Boot
-target/
-!target/application.properties
+
 
 ### NetBeans ###
 /nbproject/private/
