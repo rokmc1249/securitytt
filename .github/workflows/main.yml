@@ -2,8 +2,9 @@ name: Deploy to Amazon EC2
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 # 본인이 설정한 값을 여기서 채워넣습니다.
 # 리전, 버킷 이름, CodeDeploy 앱 이름, CodeDeploy 배포 그룹 이름
@@ -13,10 +14,9 @@ permissions:
   contents: read
 
 jobs:
-  deploy:
-    name: Deploy
+  build:
+    # 실행환경
     runs-on: ubuntu-latest
-    environment: production
 
     steps:
     # (1) 기본 체크아웃
