@@ -77,8 +77,11 @@ public class UserService {
         List<Plan> planList = planRepository.findByUser(deleteUser); // 연관된 일정 삭제
         planRepository.deleteAll(planList);
 
+        List<RefreshToken> refreshTokenList = refreshTokenRepository.findByUser(deleteUser);
+        refreshTokenRepository.deleteAll(refreshTokenList);
+
         userRepository.delete(deleteUser); // 유저 삭제
-        return new MsgResponseDto(HttpServletResponse.SC_OK, "탈퇴 완료");
+        return new MsgResponseDto(HttpServletResponse.SC_OK, "탈퇴 완료!!");
 
     }
 
